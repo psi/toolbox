@@ -14,3 +14,9 @@ jobs:
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
       - name: Build Image
         run: docker build . --file Dockerfile --tag toolbox:latest
+      - name: Tag Image
+        uses: actions/docker/tag@master
+        args: "--no-ref toolbox:latest jdharrington/toolbox"
+      - name: Push Image to DockerHub
+        uses: actions/docker/cli@master
+        args: "push jdharrington/toolbox:latest"
