@@ -19,6 +19,10 @@ jobs:
         with:
           args: "--no-ref toolbox:latest jdharrington/toolbox"
       - name: Push Image to DockerHub
-        uses: actions/docker/cli@master
+        uses: actions/docker/cli-multi@master
         with:
-          args: "push jdharrington/toolbox:latest"
+          args:
+            [
+              "push jdharrington/toolbox:latest",
+              "push jdharrington/toolbox:$GITHUB_SHA",
+            ]
