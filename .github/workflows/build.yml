@@ -13,4 +13,4 @@ jobs:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
       - name: Build Image
-        run: docker build . --file Dockerfile --tag toolbox:${{ GITHUB_SHA }}
+        run: docker build . --file Dockerfile --tag toolbox:latest
