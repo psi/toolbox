@@ -14,4 +14,7 @@ ENV VAULT_SKIP_VERIFY true
 COPY --from=consul:latest /bin/consul /usr/bin/consul
 ENV CONSUL_HTTP_ADDR http://consul.vault.svc:8500
 
+# AWS CLI
+RUN pip2.7 install awscli
+
 COPY motd /etc/motd
