@@ -1,6 +1,7 @@
 FROM nicolaka/netshoot:latest
 
 RUN apk add --update \
+    jq \
     postgresql-client \
   && rm -rf /var/cache/apk/*
 
