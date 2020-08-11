@@ -20,6 +20,6 @@ ENV CONSUL_HTTP_ADDR http://consul.vault.svc:8500
 COPY --from=bitnami/kubectl:1.15-ol-7 /opt/bitnami/kubectl/bin/kubectl /usr/bin/kubectl
 
 # AWS CLI
-RUN pip2.7 install awscli
+RUN /usr/bin/easy_install-3.8 pip && pip install awscli
 
 COPY motd /etc/motd
