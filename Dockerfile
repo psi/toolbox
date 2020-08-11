@@ -3,6 +3,7 @@ FROM nicolaka/netshoot:latest
 RUN apk add --update \
     jq \
     postgresql-client \
+    groff \
   && rm -rf /var/cache/apk/*
 
 # HashiCorp Vault
