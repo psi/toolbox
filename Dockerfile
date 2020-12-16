@@ -22,4 +22,10 @@ COPY --from=bitnami/kubectl:1.15-ol-7 /opt/bitnami/kubectl/bin/kubectl /usr/bin/
 # AWS CLI
 RUN /usr/bin/easy_install-3.8 pip && pip install awscli
 
+# Scuttle
+COPY --from=redboxoss/scuttle:latest /scuttle /usr/bin/scuttle
+
 COPY motd /etc/motd
+COPY entrypoint.sh ./
+
+ENTRYPOINT ["./entrypoint.sh"]
