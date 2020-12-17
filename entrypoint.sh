@@ -4,8 +4,9 @@ set -e
 
 export ENVOY_ADMIN_API="http://127.0.0.1:15000"
 export ISTIO_QUIT_API="http://127.0.0.1:15020"
+export START_WITHOUT_ENVOY="true"
 
-if [ "${ISTIO_ENABLED}" = "true" ] && curl --silent --max-time 5 ${ENVOY_ADMIN_API} > /dev/null; then
+if [ "${ISTIO_ENABLED}" = "true" ]; then
   export SCUTTLE_CMD=/usr/bin/scuttle
 fi
 
